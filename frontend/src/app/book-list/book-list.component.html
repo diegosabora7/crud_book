@@ -1,0 +1,44 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Lista de Libros</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Autor</th>
+            <th>Fecha Publicacion</th>
+            <th>Numero de Ejemplares</th>
+            <th>Costo</th>
+            <th style="text-align: center;">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of books | async" >
+            <td>{{book.id}}</td>
+            <td>{{book.nombre}}</td>
+            <td>{{book.descripcion}}</td>
+            <td>{{book.autor}}</td>
+            <td>{{book.fecha_pub}}</td>
+            <td>{{book.num_ejem}}</td>
+            <td style="text-align: left;">{{book.costo}}</td>
+            <td style="width: 250px !important;">
+                <div class="row">
+                    <button (click)="BookDetails(book.id)" class="btn btn-info" >Detalle</button>
+                    &nbsp;
+                    <button (click)="updateBook(book.id)" class="btn btn-primary" >Editar</button>
+                    &nbsp;
+                    <button (click)="deleteBook(book.id)" class="btn btn-danger">Eliminar</button>
+                </div>
+                
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  

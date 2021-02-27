@@ -1,0 +1,30 @@
+<h2>Detalle de Libros</h2>
+
+<hr />
+<div *ngIf="book">
+    <div>
+        <label><b>First Name: </b></label> {{book.id}}
+    </div>
+    <div>
+        <label><b>First Name: </b></label> {{book.nombre}}
+    </div>
+    <div>
+        <label><b>Last Name: </b></label> {{book.descripcion}}
+    </div>
+    <div>
+        <label><b>Email Id: </b></label> {{book.autor}}
+    </div>
+    <div>
+        <label><b>Email Id: </b></label> {{book.fecha_pub}}
+    </div>
+    <div>
+        <label><b>Email Id: </b></label> {{book.num_ejem}}
+    </div>
+    <div>
+        <label><b>Email Id: </b></label> {{book.costo}}
+    </div>
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Regresar a lista de Libros</button><br>
