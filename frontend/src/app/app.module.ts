@@ -12,6 +12,8 @@ import { BookListComponent } from './book-list/book-list.component';
 import { UpdateBookComponent } from './update-book/update-book.component';
 import {EnteroDirective} from './util/directives/entero.directive';
 import {NumeroDirective} from './util/directives/numero/numero.directive';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import {NumeroDirective} from './util/directives/numero/numero.directive';
     HttpClientModule,
     FormsModule,
     HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

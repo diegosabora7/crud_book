@@ -30,8 +30,12 @@ export class BookService {
     return this.http.delete(`${this.baseUrl}/delete/${id}`, { responseType: 'text' });
   }
 
-  getBooksList(): Observable<any> {
+  /*getBooksList(): Observable<any> {
     return this.http.get(`${this.baseUrl}/getall`);
+  }*/
+
+  getBooksList(page:number, size:number, order:string, asc:boolean): Observable<any> {
+    return this.http.get(`${this.baseUrl}/getall`+`?page=${page}&size=${size}&order=${order}&asc=${asc}`);
   }
 }
 

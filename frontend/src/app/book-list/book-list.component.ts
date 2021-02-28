@@ -11,18 +11,37 @@ import { BookService } from '../services/dto.services';
   styleUrls: ['./book-list.component.scss']
 })
 export class BookListComponent implements OnInit {
-
+  public pageActual: number = 1;
+  page = 0;
+  size = 10;
+  order = "id";
+  asc = true;
+  isFirst = false;
+  isLast = false;
+  totalPages: Array<number> = new Array<number>();
+  books1: Array<any> = new Array<any>();
   books: Observable<Book[]> = new Observable<Book[]>();
 
   constructor(private bookService: BookService,
     private router: Router) {}
+
 
   ngOnInit() {
     this.reloadData();
   }
 
   reloadData() {
-    this.books = this.bookService.getBooksList();
+    //this.books = this.bookService.getBooksList();
+    this.bookService.getBooksList(this.page,this.size,this.order, this.asc).subscribe(
+      data => {
+        this.books1 = data.content;
+        this.isFirst = data.first;
+        this.isLast = data.last;
+        this.totalPages = new Array(data['totalPages']);
+        console.log(data);
+      }
+    )
+   
   }
 
   deleteBook(id: number) {
@@ -41,6 +60,32 @@ export class BookListComponent implements OnInit {
 
   updateBook(id: number){
     this.router.navigate(['update', id]);
+  }
+
+  sort(): void {
+    this.asc = !this.asc;
+    this.reloadData();
+  }
+  rewind(): void {
+    if(!this.isFirst){
+      this.page--;
+      this.reloadData();
+    }
+  }
+  forward(): void {
+    if(!this.isLast){
+      this.page++;
+      this.reloadData();
+    }
+  }
+  setPage(page:number): void{
+    this.page = page;
+    this.reloadData();
+  }
+  setOrder(order:string){
+    this.order = order;
+    this.reloadData();
+
   }
 
 }

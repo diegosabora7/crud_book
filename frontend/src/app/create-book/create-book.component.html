@@ -7,7 +7,7 @@
     </div>
 
     <div class="form-group">
-      <label for="name">Descripcion</label>
+      <label for="name">Descripción</label>
       <input type="text" class="form-control" id="descripcion" required [(ngModel)]="book.descripcion" name="descripcion">
     </div>
 
@@ -17,13 +17,13 @@
     </div>
 
     <div class="form-group">
-        <label for="name">Fecha Publicacion</label>
+        <label for="name">Fecha Publicación</label>
         <ngb-datepicker #dp [(ngModel)]="model"></ngb-datepicker>
         <input type="date" class="form-control" id="fecha_pub" required [(ngModel)]="book.fecha_pub" name="fecha_pub">
       </div>
 
       <div class="form-group">
-        <label for="name">Numero de Ejemplares</label>
+        <label for="name">Número de Ejemplares</label>
         <input type="text" class="form-control" id="num_ejem"  required  entero [(ngModel)]="book.num_ejem" name="num_ejem">
       </div>
 
@@ -32,11 +32,11 @@
         <input type="text" class="form-control" id="costo" numero required [(ngModel)]="book.costo" name="costo">
       </div>
 
-    <button type="submit" class="btn btn-success">Enviar</button>
+    <button type="submit" class="btn btn-success"> <i class="fas fa-save"></i>&nbsp;Guardar</button>
   </form>
 </div>
 
 <div [hidden]="!submitted">
   <h4>Se ha agregado el libro!</h4>
-  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+  
 </div>
